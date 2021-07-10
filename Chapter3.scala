@@ -80,11 +80,19 @@ object List {
     }
 
     // ex 3.12
-    def reverse[A](as: List[A]): List[A] = {
-        as match {
-            case Nil => Nil
-            case Cons(last, Nil) => last
-            case Cons(head, tail) => Cons(reverse(tail), head)
-        }
+    // def reverse[A](as: List[A]): List[A] = {
+    //     as match {
+    //         case Nil => Nil
+    //         case Cons(last, Nil) => last
+    //         case Cons(head, tail) => Cons(reverse(tail), head)
+    //     }
+    // }
+    def reverse2[A](as: List[A]): List[A] = {
+        def loop(l:List[A], acc:List[A]): List[A] =
+            l match {
+                case Nil => acc
+                case Cons(head, tail) => loop(tail, Cons(head, acc))
+            }
+        loop(as, Nil)
     }
 }
