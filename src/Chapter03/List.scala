@@ -194,5 +194,4 @@ object List {
             case Cons(x, xs) => if (startsWith(sup, sub)) true else hasSubsequence(xs, sub)
         }
     }
-
 }
